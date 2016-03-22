@@ -30,20 +30,20 @@ a {
 }
 
 .one {
-    background-image: url(Images/BeachHouse.jpg);
+    background-image: url(Images/DessertRoad.jpg);
     
 }
 
 .two {
-    background-image: url(Images/BeachVan.jpg);
+    background-image: url(Images/FoggyBridge.jpg);
 }
 
 .three {
-    background-image: url(Images/Mountains.jpg);
+    background-image: url(Images/DessertRoad.jpg);
 }
 
 .four {
-    background-image: url(Images/JungleWaterfall.jpg);
+    background-image: url(Images/FoggyBridge.jpg);
 }
 
 .dropdown {
