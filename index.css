@@ -1,0 +1,74 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.object {
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-attachment: fixed;
+    text-align: center;
+    display: table;
+}
+
+h1 {
+    margin: 0px;
+    padding: 0px;
+    display: table-cell;
+    vertical-align: middle;
+    color:#FDE06A;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.one {
+    background-image: url(Images/BeachHouse.jpg);
+    
+}
+
+.two {
+    background-image: url(Images/BeachVan.jpg);
+}
+
+.three {
+    background-image: url(Images/Mountains.jpg);
+}
+
+.four {
+    background-image: url(Images/JungleWaterfall.jpg);
+}
+
+.dropdown {
+    background-color: aliceblue;
+    position: relative;
+    display: inline-block;
+}
+
+.dropbutton {
+    height: 100%;
+}
+
+.dropdowncontent {
+    display: none;
+    position:absolute;
+    background-color: #f9f9f9;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+.dropdowncontent a {
+    display: block;
+}
+
+.dropdown:hover .dropdowncontent {
+    display: block;
+}
