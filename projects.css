@@ -1,0 +1,15 @@
+.row img {
+    position: relative;
+    height: 200px;
+    width: 100%;
+}
+
+.row h3 {
+    position: absolute;
+    top:100px;
+}
+
+.row h3 a {
+    text-decoration: none;
+    color: #000000;
+}
