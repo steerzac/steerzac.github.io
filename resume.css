@@ -13,4 +13,22 @@ html, body {
     font-size: 28px;
 }
 
+.education {
+    
+}
 
+.education span {
+    margin-left: 60%;
+}
+
+.involvement span {
+    margin-left: 54%;
+}
+
+.col-md-10 {
+    text-align: left;
+}
+
+.col-md-2 {
+    text-align: left;
+}
