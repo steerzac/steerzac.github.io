@@ -29,3 +29,17 @@
 .white {
     color: #fff;
 }
+
+.FoggyBridge {
+     background-image: url(Images/FoggyBridge.jpg);   
+}
+
+.QuietLake {
+    background-image: url(Images/QuietLake.jpg);
+}
+
+.MysticForrest {
+    background-image: url(Images/MysticForrest.jpg);
+}
+
+
