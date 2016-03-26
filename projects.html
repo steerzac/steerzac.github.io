@@ -47,7 +47,6 @@
                    </div>
             </div>
             
-<!--
             <div class="col-md-4 QuietLake" >
                    <h3 id="FillerProject1"><a class="black">Filler Project 1</a></h3>
                    <div class="col-md-8">
@@ -71,7 +70,6 @@
                    <button onclick="displayFillerProject2Info()" class="glyphicon glyphicon-info-sign btn-lg btn-link white" title="Project Info"></button>
                    </div>
             </div>
--->
             
             <script>
                 
@@ -83,29 +81,40 @@
                 function displayACCInfo() {
                     if(isACCClicked == false) {
                         var infoTextDiv = document.getElementById("ACC");
-                        
+                        infoTextDiv.height = "0px";
+                        infoTextDiv.width = "0px";
                         infoTextDiv.innerHTML = "";
                         
                         infoTextDiv.style.backgroundColor = "gainsboro";
                         infoTextDiv.style.left = "0px";
                         
                         var counter = 0;
+                        var counterEndVal = 300.0;
+                        
                         var h = 0;
+                        var hInc = 80.0/counterEndVal;
+                        
                         var w = 0;
+                        var wInc = 100.0/counterEndVal;
+                        
                         var o = 0;
+                        var oInc = 1.0/counterEndVal;
+                        
                         var fsize = 0;
+                        var fsizeInc = 16.0/counterEndVal;
                         
                         var id = setInterval(expandInfo, 5);
                         
                         function expandInfo() {
-                            if  (counter == 200) {
+                            if  (counter == counterEndVal) {
                                 clearInterval(id);
                             } else {
                                 ++counter;
-                                h += .4;
-                                o += .005;
-                                w += .5;
-                                fsize += .08;
+                                h += hInc;
+                                o += oInc;
+                                w += wInc;
+                                fsize += fsizeInc;
+                                
                                 infoTextDiv.style.height = h + 'px';
                                 infoTextDiv.style.width = w + '%';
                                 infoTextDiv.style.opacity = o; 
@@ -172,41 +181,199 @@
                 
                 function displayFillerProject1Info() {
                     if(isFillerProject1 == false) {
-                        document.getElementById("FillerProject1").style.backgroundColor = "gainsboro";
-                        document.getElementById("FillerProject1").style.left = "0px";
-                        document.getElementById("FillerProject1").style.height = "80px";
-                        document.getElementById("FillerProject1").style.fontSize = "16px";
-                        document.getElementById("FillerProject1").style.width = "100%";
-                        document.getElementById("FillerProject1").innerHTML = "Filler Text";
+                        var infoTextDiv = document.getElementById("FillerProject1");
+                        infoTextDiv.height = "0px";
+                        infoTextDiv.width = "0px";
+                        infoTextDiv.innerHTML = "";
+                        
+                        infoTextDiv.style.backgroundColor = "gainsboro";
+                        infoTextDiv.style.left = "0px";
+                        
+                        var counter = 0;
+                        var counterEndVal = 300.0;
+                        
+                        var h = 0;
+                        var hInc = 80.0/counterEndVal;
+                        
+                        var w = 0;
+                        var wInc = 100.0/counterEndVal;
+                        
+                        var o = 0;
+                        var oInc = 1.0/counterEndVal;
+                        
+                        var fsize = 0;
+                        var fsizeInc = 16.0/counterEndVal;
+                        
+                        var id = setInterval(expandInfo, 5);
+                        
+                        function expandInfo() {
+                            if  (counter == counterEndVal) {
+                                clearInterval(id);
+                            } else {
+                                ++counter;
+                                h += hInc;
+                                o += oInc;
+                                w += wInc;
+                                fsize += fsizeInc;
+                                
+                                infoTextDiv.style.height = h + 'px';
+                                infoTextDiv.style.width = w + '%';
+                                infoTextDiv.style.opacity = o; 
+                                infoTextDiv.style.fontSize = fsize + 'px';
+                                infoTextDiv.style.borderStyle = 'double';
+                                infoTextDiv.innerHTML = "<ul><li>Filler Text 1</li></ul>";
+                        
+                            }
+                        }
+                        
                         isFillerProject1 = true;
                     }
                     else {
-                        document.getElementById("FillerProject1").style.left = "auto";
-                        document.getElementById("FillerProject1").style.height = "auto";
-                        document.getElementById("FillerProject1").style.fontSize = "24px";
-                        document.getElementById("FillerProject1").style.backgroundColor = "transparent";
-                        document.getElementById("FillerProject1").innerHTML = "<a class='black'>Filler Project 1</a>";
-                        isFillerProject1 = false;
+                        var infoTextDiv = document.getElementById("FillerProject1");
+                        
+                        infoTextDiv.innerHTML = "";
+                        
+                        infoTextDiv.style.backgroundColor = "gainsboro";
+                        infoTextDiv.style.left = "0px";
+                        
+                        var counter = 200;
+                        var h = 80;
+                        var w = 100;
+                        var o = 1;
+                        var fsize = 16;
+                        var id = setInterval(retractInfo, 5);
+                        
+                        function resetDiv() {
+                            infoTextDiv.style.left = "15px";
+                            infoTextDiv.style.height = "80px";
+                            infoTextDiv.style.width = "100%";
+                            infoTextDiv.style.fontSize = "24px";
+                            infoTextDiv.style.opacity = "1";
+                            infoTextDiv.style.border = "none";
+                            infoTextDiv.style.backgroundColor = "transparent";
+                            infoTextDiv.innerHTML = "<a class='black'>Filler Project 1</a>";
+                            isFillerProject1 = false;
+                        }
+                        
+                        function retractInfo() {
+                            if  (counter == 0) {
+                                clearInterval(id);
+                                resetDiv();
+                            } else {
+                                --counter;
+                                h -= .4;
+                                o -= .005;
+                                w -= .5;
+                                fsize -= .08;
+                                infoTextDiv.style.height = h + 'px';
+                                infoTextDiv.style.width = w + '%';
+                                infoTextDiv.style.opacity = o; 
+                                infoTextDiv.style.fontSize = fsize + 'px';
+                                infoTextDiv.style.borderStyle = 'double';
+                                infoTextDiv.innerHTML = "<ul><li>Filler Text 1</li></ul>";
+                        
+                            }
+                        }
+                        
                     }
                 }
                 
                 function displayFillerProject2Info() {
                     if(isFillerProject2 == false) {
-                        document.getElementById("FillerProject2").style.backgroundColor = "gainsboro";
-                        document.getElementById("FillerProject2").style.left = "0px";
-                        document.getElementById("FillerProject2").style.height = "80px";
-                        document.getElementById("FillerProject2").style.fontSize = "16px";
-                        document.getElementById("FillerProject2").style.width = "100%";
-                        document.getElementById("FillerProject2").innerHTML = "Filler Text";
+                        var infoTextDiv = document.getElementById("FillerProject2");
+                        infoTextDiv.height = "0px";
+                        infoTextDiv.width = "0px";
+                        infoTextDiv.innerHTML = "";
+                        
+                        infoTextDiv.style.backgroundColor = "gainsboro";
+                        infoTextDiv.style.left = "0px";
+                        
+                        var counter = 0;
+                        var counterEndVal = 300.0;
+                        
+                        var h = 0;
+                        var hInc = 80.0/counterEndVal;
+                        
+                        var w = 0;
+                        var wInc = 100.0/counterEndVal;
+                        
+                        var o = 0;
+                        var oInc = 1.0/counterEndVal;
+                        
+                        var fsize = 0;
+                        var fsizeInc = 16.0/counterEndVal;
+                        
+                        var id = setInterval(expandInfo, 5);
+                        
+                        function expandInfo() {
+                            if  (counter == counterEndVal) {
+                                clearInterval(id);
+                            } else {
+                                ++counter;
+                                h += hInc;
+                                o += oInc;
+                                w += wInc;
+                                fsize += fsizeInc;
+                                
+                                infoTextDiv.style.height = h + 'px';
+                                infoTextDiv.style.width = w + '%';
+                                infoTextDiv.style.opacity = o; 
+                                infoTextDiv.style.fontSize = fsize + 'px';
+                                infoTextDiv.style.borderStyle = 'double';
+                                infoTextDiv.innerHTML = "<ul><li>Filler Text 2</li></ul>";
+                        
+                            }
+                        }
+                        
                         isFillerProject2 = true;
                     }
                     else {
-                        document.getElementById("FillerProject2").style.left = "auto";
-                        document.getElementById("FillerProject2").style.height = "auto";
-                        document.getElementById("FillerProject2").style.fontSize = "24px";
-                        document.getElementById("FillerProject2").style.backgroundColor = "transparent";
-                        document.getElementById("FillerProject2").innerHTML = "<a class='white'>Filler Project 2</a>";
-                        isFillerProject2 = false;
+                        var infoTextDiv = document.getElementById("FillerProject2");
+                        
+                        infoTextDiv.innerHTML = "";
+                        
+                        infoTextDiv.style.backgroundColor = "gainsboro";
+                        infoTextDiv.style.left = "0px";
+                        
+                        var counter = 200;
+                        var h = 80;
+                        var w = 100;
+                        var o = 1;
+                        var fsize = 16;
+                        var id = setInterval(retractInfo, 5);
+                        
+                        function resetDiv() {
+                            infoTextDiv.style.left = "15px";
+                            infoTextDiv.style.height = "80px";
+                            infoTextDiv.style.width = "100%";
+                            infoTextDiv.style.fontSize = "24px";
+                            infoTextDiv.style.opacity = "1";
+                            infoTextDiv.style.border = "none";
+                            infoTextDiv.style.backgroundColor = "transparent";
+                            infoTextDiv.innerHTML = "<a class='white'>Filler Project 2</a>";
+                            isFillerProject2 = false;
+                        }
+                        
+                        function retractInfo() {
+                            if  (counter == 0) {
+                                clearInterval(id);
+                                resetDiv();
+                            } else {
+                                --counter;
+                                h -= .4;
+                                o -= .005;
+                                w -= .5;
+                                fsize -= .08;
+                                infoTextDiv.style.height = h + 'px';
+                                infoTextDiv.style.width = w + '%';
+                                infoTextDiv.style.opacity = o; 
+                                infoTextDiv.style.fontSize = fsize + 'px';
+                                infoTextDiv.style.borderStyle = 'double';
+                                infoTextDiv.innerHTML = "<ul><li>Filler Text 2</li></ul>";
+                        
+                            }
+                        }
+                        
                     }
                 }
             </script>
