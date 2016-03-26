@@ -8,7 +8,7 @@
 }
 
 .row h3 {
-    position: absolute;
+    position:absolute;
     top:100px;
 }
 
@@ -40,6 +40,11 @@
 
 .MysticForrest {
     background-image: url(Images/MysticForrest.jpg);
+}
+
+.displayInfo {
+    background-color: gainsboro;
+    border: none;
 }
 
 

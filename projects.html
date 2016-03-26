@@ -36,50 +36,108 @@
 <!--        Gallery-->
         <div class="row">
             <div class="col-md-4 FoggyBridge">
-               <div class="project-info">
-                   <h3><a class="black" href="http://aggiecodingclub.com/" target="_blank">Aggie Coding Club <br>Website</a></h3>
+                   <h3 id="ACC"><a class="black" href="http://aggiecodingclub.com/" target="_blank">Aggie Coding Club <br>Website</a></h3>
                    <div class="col-md-8">
                    </div>
                    <div class="col-md-2">
                    <a class="glyphicon glyphicon-eye-open btn-lg btn-link black" title="View The Project" href="http://aggiecodingclub.com/" target="_blank"></a>
                    </div>
                    <div class="col-md-2">
-                   <a class="glyphicon glyphicon-info-sign btn-lg btn-link black" title="Project Info"></a>
+                   <button onclick="displayACCInfo()" class="glyphicon glyphicon-info-sign btn-lg btn-link black" title="Project Info"></button>
                    </div>
-                   
-                </div>
             </div>
             
             <div class="col-md-4 QuietLake" >
-               <div class="project-info">
-                   <h3><a class="black" href="http://aggiecodingclub.com/" target="_blank">Filler Project</a></h3>
+                   <h3 id="FillerProject1"><a class="black" href="http://aggiecodingclub.com/" target="_blank">Filler Project 1</a></h3>
                    <div class="col-md-8">
                    </div>
                    <div class="col-md-2">
                    <a class="glyphicon glyphicon-eye-open btn-lg btn-link black" title="View The Project" href="http://google.tamu.edu/"></a>
                    </div>
                    <div class="col-md-2">
-                   <a class="glyphicon glyphicon-info-sign btn-lg btn-link black" title="Project Info"></a>
+                   <button onclick="displayFillerProject1Info()" class="glyphicon glyphicon-info-sign btn-lg btn-link black" title="Project Info"></button>
                    </div>
-                   
-                </div>
             </div>
             
             <div class="col-md-4 MysticForrest" >
-               <div class="project-info">
-                   <h3><a class="white" href="http://aggiecodingclub.com/" target="_blank">Filler Project</a></h3>
+                   <h3 id="FillerProject2"><a class="white" href="http://aggiecodingclub.com/" target="_blank">Filler Project 2</a></h3>
                    <div class="col-md-8">
                    </div>
                    <div class="col-md-2">
                    <a class="glyphicon glyphicon-eye-open btn-lg btn-link white" title="View The Project"></a>
                    </div>
                    <div class="col-md-2">
-                   <a class="glyphicon glyphicon-info-sign btn-lg btn-link white" title="Project Info"></a>
+                   <button onclick="displayFillerProject2Info()" class="glyphicon glyphicon-info-sign btn-lg btn-link white" title="Project Info"></button>
                    </div>
-                   
-                </div>
             </div>
             
+            <script>
+                
+                var isACCClicked = false;
+                var isFillerProject1 = false;
+                var isFillerProject2 = false;
+                
+
+                function displayACCInfo() {
+                    if(isACCClicked == false) {
+                        document.getElementById("ACC").style.backgroundColor = "gainsboro";
+                        document.getElementById("ACC").style.left = "0px";
+                        document.getElementById("ACC").style.height = "80px";
+                        document.getElementById("ACC").style.fontSize = "16px";
+                        document.getElementById("ACC").style.width = "100%";
+                        document.getElementById("ACC").innerHTML = "Created Contact Page";
+                        isACCClicked = true;
+                    }
+                    else {
+                        document.getElementById("ACC").style.left = "auto";
+                        document.getElementById("ACC").style.height = "auto";
+                        document.getElementById("ACC").style.fontSize = "24px";
+                        document.getElementById("ACC").style.backgroundColor = "transparent";
+                        document.getElementById("ACC").innerHTML = "<a class='black' href='http://aggiecodingclub.com/' target='_blank'>Aggie Coding Club <br>Website</a>";
+                        isACCClicked = false;
+                    }
+                }
+                
+                function displayFillerProject1Info() {
+                    if(isFillerProject1 == false) {
+                        document.getElementById("FillerProject1").style.backgroundColor = "gainsboro";
+                        document.getElementById("FillerProject1").style.left = "0px";
+                        document.getElementById("FillerProject1").style.height = "80px";
+                        document.getElementById("FillerProject1").style.fontSize = "16px";
+                        document.getElementById("FillerProject1").style.width = "100%";
+                        document.getElementById("FillerProject1").innerHTML = "Filler Text";
+                        isFillerProject1 = true;
+                    }
+                    else {
+                        document.getElementById("FillerProject1").style.left = "auto";
+                        document.getElementById("FillerProject1").style.height = "auto";
+                        document.getElementById("FillerProject1").style.fontSize = "24px";
+                        document.getElementById("FillerProject1").style.backgroundColor = "transparent";
+                        document.getElementById("FillerProject1").innerHTML = "<a class='black' href='http://aggiecodingclub.com/' target='_blank'>Filler Project 1</a>";
+                        isFillerProject1 = false;
+                    }
+                }
+                
+                function displayFillerProject2Info() {
+                    if(isFillerProject2 == false) {
+                        document.getElementById("FillerProject2").style.backgroundColor = "gainsboro";
+                        document.getElementById("FillerProject2").style.left = "0px";
+                        document.getElementById("FillerProject2").style.height = "80px";
+                        document.getElementById("FillerProject2").style.fontSize = "16px";
+                        document.getElementById("FillerProject2").style.width = "100%";
+                        document.getElementById("FillerProject2").innerHTML = "Filler Text";
+                        isFillerProject2 = true;
+                    }
+                    else {
+                        document.getElementById("FillerProject2").style.left = "auto";
+                        document.getElementById("FillerProject2").style.height = "auto";
+                        document.getElementById("FillerProject2").style.fontSize = "24px";
+                        document.getElementById("FillerProject2").style.backgroundColor = "transparent";
+                        document.getElementById("FillerProject2").innerHTML = "<a class='white' href='http://aggiecodingclub.com/' target='_blank'>Filler Project 2</a>";
+                        isFillerProject2 = false;
+                    }
+                }
+            </script>
        </div>
        
     </div>
