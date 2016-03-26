@@ -6,7 +6,7 @@ html, body {
 }
 
 .object {
-    background-size: cover;
+    background-size:cover;
     height: 100%;
     width: 100%;
     margin: 0px;
@@ -31,36 +31,8 @@ a {
 
 .one {
     background-image: url(Images/DessertRoad.jpg);
-    
 }
 
 .two {
     background-image: url(Images/FoggyBridge.jpg);
-}
-
-.dropdown {
-    background-color: aliceblue;
-    position: relative;
-    display: inline-block;
-}
-
-.dropbutton {
-    height: 100%;
-}
-
-.dropdowncontent {
-    display: none;
-    position:absolute;
-    background-color: #f9f9f9;
-    margin: 0px;
-    padding: 0px;
-    width: 100%;
-}
-
-.dropdowncontent a {
-    display: block;
-}
-
-.dropdown:hover .dropdowncontent {
-    display: block;
 }

@@ -47,6 +47,7 @@
                    </div>
             </div>
             
+<!--
             <div class="col-md-4 QuietLake" >
                    <h3 id="FillerProject1"><a class="black">Filler Project 1</a></h3>
                    <div class="col-md-8">
@@ -70,6 +71,7 @@
                    <button onclick="displayFillerProject2Info()" class="glyphicon glyphicon-info-sign btn-lg btn-link white" title="Project Info"></button>
                    </div>
             </div>
+-->
             
             <script>
                 
@@ -80,23 +82,93 @@
 
                 function displayACCInfo() {
                     if(isACCClicked == false) {
-                        document.getElementById("ACC").style.backgroundColor = "gainsboro";
-                        document.getElementById("ACC").style.left = "0px";
-                        document.getElementById("ACC").style.height = "80px";
-                        document.getElementById("ACC").style.fontSize = "16px";
-                        document.getElementById("ACC").style.width = "100%";
-                        document.getElementById("ACC").innerHTML = "Created Contact Page";
+                        var infoTextDiv = document.getElementById("ACC");
+                        
+                        infoTextDiv.innerHTML = "";
+                        
+                        infoTextDiv.style.backgroundColor = "gainsboro";
+                        infoTextDiv.style.left = "0px";
+                        
+                        var counter = 0;
+                        var h = 0;
+                        var w = 0;
+                        var o = 0;
+                        var fsize = 0;
+                        
+                        var id = setInterval(expandInfo, 5);
+                        
+                        function expandInfo() {
+                            if  (counter == 200) {
+                                clearInterval(id);
+                            } else {
+                                ++counter;
+                                h += .4;
+                                o += .005;
+                                w += .5;
+                                fsize += .08;
+                                infoTextDiv.style.height = h + 'px';
+                                infoTextDiv.style.width = w + '%';
+                                infoTextDiv.style.opacity = o; 
+                                infoTextDiv.style.fontSize = fsize + 'px';
+                                infoTextDiv.style.borderStyle = 'double';
+                                infoTextDiv.innerHTML = "<ul><li>Created Contact Page</li></ul>";
+                        
+                            }
+                        }
+                        
                         isACCClicked = true;
                     }
                     else {
-                        document.getElementById("ACC").style.left = "auto";
-                        document.getElementById("ACC").style.height = "auto";
-                        document.getElementById("ACC").style.fontSize = "24px";
-                        document.getElementById("ACC").style.backgroundColor = "transparent";
-                        document.getElementById("ACC").innerHTML = "<a class='black' href='http://aggiecodingclub.com/' target='_blank'>Aggie Coding Club <br>Website</a>";
-                        isACCClicked = false;
+                        var infoTextDiv = document.getElementById("ACC");
+                        
+                        infoTextDiv.innerHTML = "";
+                        
+                        infoTextDiv.style.backgroundColor = "gainsboro";
+                        infoTextDiv.style.left = "0px";
+                        
+                        var counter = 200;
+                        var h = 80;
+                        var w = 100;
+                        var o = 1;
+                        var fsize = 16;
+                        var id = setInterval(retractInfo, 5);
+                        
+                        function resetDiv() {
+                            infoTextDiv.style.left = "15px";
+                            infoTextDiv.style.height = "80px";
+                            infoTextDiv.style.width = "100%";
+                            infoTextDiv.style.fontSize = "24px";
+                            infoTextDiv.style.opacity = "1";
+                            infoTextDiv.style.border = "none";
+                            infoTextDiv.style.backgroundColor = "transparent";
+                            infoTextDiv.innerHTML = "<a class='black' href='http://aggiecodingclub.com/' target='_blank'>Aggie Coding Club <br>Website</a>";
+                            isACCClicked = false;
+                        }
+                        
+                        function retractInfo() {
+                            if  (counter == 0) {
+                                clearInterval(id);
+                                resetDiv();
+                            } else {
+                                --counter;
+                                h -= .4;
+                                o -= .005;
+                                w -= .5;
+                                fsize -= .08;
+                                infoTextDiv.style.height = h + 'px';
+                                infoTextDiv.style.width = w + '%';
+                                infoTextDiv.style.opacity = o; 
+                                infoTextDiv.style.fontSize = fsize + 'px';
+                                infoTextDiv.style.borderStyle = 'double';
+                                infoTextDiv.innerHTML = "<ul><li>Created Contact Page</li></ul>";
+                        
+                            }
+                        }
+                        
                     }
                 }
+                
+                
                 
                 function displayFillerProject1Info() {
                     if(isFillerProject1 == false) {
