@@ -30,9 +30,9 @@ a {
 }
 
 .one {
-    background-image: url(Images/DessertRoad.jpg);
+    background-image: url(/static/img/DessertRoad.jpg);
 }
 
 .two {
-    background-image: url(Images/FoggyBridge.jpg);
+    background-image: url(/static/img/FoggyBridge.jpg);
 }

@@ -31,20 +31,18 @@
 }
 
 .FoggyBridge {
-     background-image: url(Images/FoggyBridge.jpg);   
+     background-image: url(/static/img/FoggyBridge.jpg);
 }
 
 .QuietLake {
-    background-image: url(Images/QuietLake.jpg);
+    background-image: url(/static/img/QuietLake.jpg);
 }
 
 .MysticForrest {
-    background-image: url(Images/MysticForrest.jpg);
+    background-image: url(/static/img/MysticForrest.jpg);
 }
 
 .displayInfo {
     background-color: gainsboro;
     border: none;
 }
-
-
