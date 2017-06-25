@@ -5,6 +5,7 @@ import tornado.web
 import tornado.httpclient
 import tornado.websocket
 import os
+from urllib.parse import urlparse
 import requests
 
 
@@ -15,15 +16,11 @@ class BaseHandler(tornado.web.RequestHandler):
 
 class IndexHandler(BaseHandler):
 	def get(self):
-		self.render("templates/html/index.html", message=0, user=self.get_current_user())
+		self.render("templates/html/index.html", key=api_key)
 
 class ProjectsHandler(BaseHandler):
     def get(self):
         self.render("templates/html/projects.html")
-
-class ResumeHandler(BaseHandler):
-    def get(self):
-        self.render("templates/html/resume.html")
 
 
 def make_app():
@@ -33,9 +30,9 @@ def make_app():
 		}),
 		(r"/",IndexHandler),
         (r"/projects",ProjectsHandler),
-        (r"/resume",ResumeHandler)
 	], debug=True,compress_response=True)
 
+api_key = urlparse(os.environ["GOOGLE_MAPS_JS_KEY"]).path[0:]
 
 if __name__ == "__main__":
 	app = make_app()
