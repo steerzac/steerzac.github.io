@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="background-container container-fluid">
+  <div class="quote-container">
+    <h3>Inspirational Quote: </h3>
+    <button id="inspire-btn" type="button" name="button">Inspire Me</button>
+    <p id="quote"></p>
+  </div>
+</div>
+{% end %}
+
+{% block js %}
+  <script type="text/javascript">
+    $("#inspire-btn").click(function() {
+      $.ajax({
+        url:"https://api.forismatic.com/api/1.0/",
+        jsonp: "jsonp",
+        dataType: "jsonp",
+        data: {
+          "method": "getQuote",
+          "lang": "en",
+          "format": "jsonp",
+          "jsonp": "processJsonp"
+        }
+      });
+    });
+
+    //JsonP is processed here. o is the JSON responce
+    function processJsonp(o) {
+      quote = o["quoteText"]
+      $("#quote").text(quote);
+    };
+
+  </script>
+{% end %}

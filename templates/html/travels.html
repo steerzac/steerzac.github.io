@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block css %}
+  <link rel="stylesheet" href="static/css/travels.css">
+{% end %}
+
+{% block content %}
+<div class="background-container container-fluid">
+  <div class="map-container">
+    <h3 id="map-title">Travels</h3>
+    <div id="map">
+    </div>
+    <p id="map-text">A quick map of my travels. I was born and raised in Aledo, TX, a humble but growing city.
+    After graduating highschool, I chose to attend Texas A&ampM University, located in College Station, TX, and pursue a Bachelors' Degree
+    in Computer Science. Since enrolling, I have been fortunate enough to work for two great companies as an intern/co-op.
+    I spent eight months over the summer and fall of 2016 in Greenville, TX working as a software engineer co-op for L-3 Technologies, where I was exposed to the defense industry
+    and the different technologies coming to market for the world's militaries. Thereafter, I spent time in San Jose, CA as a software engineer summer intern for Cisco Systems, contributing
+    a small piece towards a massive effort to enable wireless networks to detect malware in encrypted network traffic.
+   </p>
+  </div>
+</div>
+{% end %}
+
+{% block js %}
+  <script type="text/javascript" src="static/js/google-map.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key={{key}}&callback=initMap"
+  type="text/javascript"></script>
+{% end %}

@@ -16,12 +16,23 @@ class BaseHandler(tornado.web.RequestHandler):
 
 class IndexHandler(BaseHandler):
 	def get(self):
-		self.render("templates/html/index.html", key=api_key)
+		self.render("templates/html/index.html")
 
 class ProjectsHandler(BaseHandler):
     def get(self):
         self.render("templates/html/projects.html")
 
+class EtcHandler(BaseHandler):
+    def get(self):
+        self.render("templates/html/etc.html")
+
+class InspirationHandler(BaseHandler):
+	def get(self):
+		self.render("templates/html/inspiration.html")
+
+class TravelsHandler(BaseHandler):
+	def get(self):
+		self.render("templates/html/travels.html", key=api_key)
 
 def make_app():
 	return tornado.web.Application([
@@ -30,6 +41,9 @@ def make_app():
 		}),
 		(r"/",IndexHandler),
         (r"/projects",ProjectsHandler),
+		(r"/etc",EtcHandler),
+		(r"/inspiration",InspirationHandler),
+		(r"/travels",TravelsHandler)
 	], debug=True,compress_response=True)
 
 api_key = urlparse(os.environ["GOOGLE_MAPS_JS_KEY"]).path[0:]

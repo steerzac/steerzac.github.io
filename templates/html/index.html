@@ -4,21 +4,6 @@
   <link rel="stylesheet" href="static/css/index.css">
 {% end %}
 
-{% block content %}
-<div class="map-container">
-  <h3 id="map-title">Travels</h3>
-  <div id="map">
-  </div>
-  <p>A quick map of my travels. I was born and raised in Aledo, TX, a humble but growing city.
-  After graduating highschool, I chose to attend Texas A&ampM University, located in College Station, TX, and pursue a Bachelors' Degree
-  in Computer Science. Since enrolling, I have been fortunate enough to work for two great companies as an intern/co-op.
-  I spent eight months over the summer and fall of 2016 in Greenville, TX working as a software engineer co-op for L-3 Technologies, where I was exposed to the defense industry
-  and the different technologies coming to market for the world's militaries. Thereafter, I spent time in San Jose, CA as a software engineer summer intern for Cisco Systems, contributing
-  a small piece towards a massive effort to enable wireless networks to detect malware in encrypted network traffic.
- </p>
-
-</div>
-{% end %}
 {% block indexBlock %}
     <div class="object one">
       <h1><a href="static/etc/Zachary_Steer_Resume_06_20_17.pdf">Resumé</a></h1>
@@ -27,77 +12,4 @@
     <div class="object two">
         <h1><a href="/projects">Projects</a></h1>
     </div>
-{% end %}
-
-{% block js %}
-  <script type="text/javascript">
-    var sj = {lat: 37.338, lng: -121.886};
-    var aledo = {lat: 32.6960, lng: -97.6022};
-    var cstat = {lat: 30.6280, lng: -96.3344};
-    var gville = {lat: 33.1384, lng: -96.1108};
-
-    var ciscoIcon = "/static/img/cisco_logo.png";
-    var homeIcon = "/static/img/home_icon.png";
-    var a_mIcon = "/static/img/tamu_logo.png";
-    var l3Icon = "/static/img/l3icon.png";
-
-    var markerData = [
-      {"city":sj,"icon":ciscoIcon},
-      {"city":aledo,"icon":homeIcon},
-      {"city":cstat,"icon":a_mIcon},
-      {"city":gville,"icon":l3Icon}
-    ];
-    function initMap() {
-      var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 4,
-        center: sj
-      });
-
-      // Define the symbol, using one of the predefined paths ('CIRCLE')
-      // supplied by the Google Maps JavaScript API.
-      var lineSymbol = {
-        path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
-        scale: 3,
-        strokeColor: '#003C71'
-      };
-
-      // Create the polyline and add the symbol to it via the 'icons' property.
-      var line = new google.maps.Polyline({
-        path: [aledo, sj],
-        icons: [{
-          icon: lineSymbol,
-          offset: '100%',
-        }],
-        strokeWeight: 1,
-        map: map
-      });
-
-      animateCircle(line);
-
-      for (var i = 0; i < markerData.length; ++i) {
-        new google.maps.Marker({
-          position: markerData[i].city,
-          map: map,
-          icon: markerData[i].icon,
-          animation: google.maps.Animation.DROP
-        });
-      }
-    }
-
-    // Use the DOM setInterval() function to change the offset of the symbol
-    // at fixed intervals.
-    function animateCircle(line) {
-        var count = 0;
-        window.setInterval(function() {
-          count = (count + 1) % 300;
-
-          var icons = line.get('icons');
-          icons[0].offset = (count / 3) + '%';
-          line.set('icons', icons);
-      }, 20);}
-
-  </script>
-  <script src="static/js/index.js"></script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key={{key}}&callback=initMap"
-  type="text/javascript"></script>
 {% end %}
