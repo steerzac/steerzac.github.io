@@ -1,36 +1,163 @@
 {% extends "base.html" %}
 
+{% block css %}
+<link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+<link href="static/css/inspiration.css" rel="stylesheet">
+<script src="static/js/turn.min.js"></script>
+<script src="static/js/scissor.min.js"></script>
+<script src="static/js/hash.js"></script>
+<script src="static/js/zoom.min.js"></script>
+{% end %}
 {% block content %}
 <div class="background-container container-fluid">
   <div class="quote-container">
-    <h3>Inspirational Quote: </h3>
-    <button id="inspire-btn" type="button" name="button">Inspire Me</button>
-    <p id="quote"></p>
+        <h3>Inspirational Quotes:</h3>
+        <button id="inspire-btn" type="button" name="button">Add Page</button>
+  </div>
+
+    <div>
+      <p id="quote"></p>
+      <p id="author"></p>
+    </div>
+</div>
+
+<div class="book-container">
+  <div class="book-container">
+    <div id="flipbook">
+      <div class="hard page">Turn js</div>
+      <div class="page" id="pg1">Page1</div>
+      <!-- <div class="">Page2</div>
+      <div class="">Page3</div> -->
+    </div>
   </div>
 </div>
+
 {% end %}
 
 {% block js %}
   <script type="text/javascript">
+  $("#flipbook").turn({
+    width:400,
+    height:300,
+  });
+
+  $.ajax({
+    url:"https://api.forismatic.com/api/1.0/",
+    dataType: "jsonp",
+    data: {
+      "method": "getQuote",
+      "lang": "en",
+      "format": "jsonp",
+      "jsonp": "pg1Process"
+    }
+  });
+
+  function pg1Process(o) {
+    quote = o["quoteText"]
+    author = o["quoteAuthor"]
+    console.log(author);
+    if (author == "") { author = " - Unknown" }
+    else { author = " - " + author; }
+    $("#pg1").text("\"" + quote + "\"" + author);
+  }
+
+
     $("#inspire-btn").click(function() {
       $.ajax({
         url:"https://api.forismatic.com/api/1.0/",
-        jsonp: "jsonp",
         dataType: "jsonp",
         data: {
           "method": "getQuote",
           "lang": "en",
           "format": "jsonp",
-          "jsonp": "processJsonp"
+          "jsonp": "processNewPage"
         }
       });
     });
 
-    //JsonP is processed here. o is the JSON responce
-    function processJsonp(o) {
+    function processNewPage(o) {
       quote = o["quoteText"]
-      $("#quote").text(quote);
-    };
+      author = o["quoteAuthor"]
+      console.log("New page! " + quote);
+      if (author == "") { author = " - Unknown" }
+      else { author = " - " + author; }
+      newPage = $("<div>", {"class": "page"}).text("\"" + quote + "\"" + " - " + author);
+      $("#flipbook").turn("addPage", newPage);
+    }
 
   </script>
+
+  <style>
+  body{
+      overflow:hidden;
+      padding-left: 10px;
+  }
+
+  /*#flipbook{
+      width:200px;
+      height:150px;
+  }*/
+
+  #flipbook .page{
+      /*width:400px;
+      height:300px;*/
+      background-color:white;
+      line-height:25px;
+      font-size:15px;
+      text-align:center;
+      border-color: black;
+  }
+
+  #flipbook .page-wrapper{
+      -webkit-perspective:2000px;
+      -moz-perspective:2000px;
+      -ms-perspective:2000px;
+      -o-perspective:2000px;
+      perspective:2000px;
+  }
+
+  #flipbook .hard{
+      background:grey !important;
+      color:#333;
+      font-size: 20px;
+      text-align: center;
+      -webkit-box-shadow:inset 0 0 5px #666;
+      -moz-box-shadow:inset 0 0 5px #666;
+      -o-box-shadow:inset 0 0 5px #666;
+      -ms-box-shadow:inset 0 0 5px #666;
+      box-shadow:inset 0 0 5px #666;
+      font-weight:bold;
+  }
+
+  #flipbook .odd{
+      background:-webkit-gradient(linear, right top, left top, color-stop(0.95, #FFF), color-stop(1, #DADADA));
+      background-image:-webkit-linear-gradient(right, #FFF 95%, #C4C4C4 100%);
+      background-image:-moz-linear-gradient(right, #FFF 95%, #C4C4C4 100%);
+      background-image:-ms-linear-gradient(right, #FFF 95%, #C4C4C4 100%);
+      background-image:-o-linear-gradient(right, #FFF 95%, #C4C4C4 100%);
+      background-image:linear-gradient(right, #FFF 95%, #C4C4C4 100%);
+      -webkit-box-shadow:inset 0 0 5px #666;
+      -moz-box-shadow:inset 0 0 5px #666;
+      -o-box-shadow:inset 0 0 5px #666;
+      -ms-box-shadow:inset 0 0 5px #666;
+      box-shadow:inset 0 0 5px #666;
+      border-color: black;
+
+  }
+
+  #flipbook .even{
+      background:-webkit-gradient(linear, left top, right top, color-stop(0.95, #fff), color-stop(1, #dadada));
+      background-image:-webkit-linear-gradient(left, #fff 95%, #dadada 100%);
+      background-image:-moz-linear-gradient(left, #fff 95%, #dadada 100%);
+      background-image:-ms-linear-gradient(left, #fff 95%, #dadada 100%);
+      background-image:-o-linear-gradient(left, #fff 95%, #dadada 100%);
+      background-image:linear-gradient(left, #fff 95%, #dadada 100%);
+      -webkit-box-shadow:inset 0 0 5px #666;
+      -moz-box-shadow:inset 0 0 5px #666;
+      -o-box-shadow:inset 0 0 5px #666;
+      -ms-box-shadow:inset 0 0 5px #666;
+      box-shadow:inset 0 0 5px #666;
+      border-color: black;
+  }
+  </style>
 {% end %}

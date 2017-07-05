@@ -43,7 +43,7 @@ def make_app():
         (r"/projects",ProjectsHandler),
 		(r"/etc",EtcHandler),
 		(r"/inspiration",InspirationHandler),
-		(r"/travels",TravelsHandler)
+		(r"/travels",TravelsHandler),
 	], debug=True,compress_response=True)
 
 api_key = urlparse(os.environ["GOOGLE_MAPS_JS_KEY"]).path[0:]
