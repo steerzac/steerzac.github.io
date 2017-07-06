@@ -24,10 +24,8 @@
 <div class="book-container">
   <div class="book-container">
     <div id="flipbook">
-      <div class="hard page">Turn js</div>
+      <div class="hard page">Inspiration</div>
       <div class="page" id="pg1">Page1</div>
-      <!-- <div class="">Page2</div>
-      <div class="">Page3</div> -->
     </div>
   </div>
 </div>
@@ -58,7 +56,7 @@
     console.log(author);
     if (author == "") { author = " - Unknown" }
     else { author = " - " + author; }
-    $("#pg1").text("\"" + quote + "\"" + author);
+    $("#pg1").text("\"" + quote.trim() + "\"" + author);
   }
 
 
@@ -81,7 +79,7 @@
       console.log("New page! " + quote);
       if (author == "") { author = " - Unknown" }
       else { author = " - " + author; }
-      newPage = $("<div>", {"class": "page"}).text("\"" + quote + "\"" + " - " + author);
+      newPage = $("<div>", {"class": "page"}).text("\"" + quote.trim() + "\"" + author);
       $("#flipbook").turn("addPage", newPage);
     }
 

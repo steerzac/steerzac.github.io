@@ -21,7 +21,7 @@ ACC_Data.show_html = "<div style='font-weight: bold; text-align: center; font-si
           <br> \
           <ul> \
             <li>Implemented club page with PHP, Javascript, CSS, HTML</li> \
-            <li>Worked in collaborative team on 10 fellow students</li></ul></div>";
+            <li>Worked in collaborative team with 10 fellow students</li></ul></div>";
 ACC_Data.hide_html = "<a class='black' href='http://aggiecodingclub.com/' target='_blank'>Aggie Coding Club <br>Website</a>";
 
 $("#acc-info").click(function(){

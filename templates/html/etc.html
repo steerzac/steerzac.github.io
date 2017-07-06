@@ -1,11 +1,15 @@
 {% extends "base.html" %}
 
+{% block css %}
+<link rel="stylesheet" href="static/css/etc.css">
+{% end %}
+
 {% block content %}
-<div class="list-container">
-  <h3>The /etc folder of my web projects</h3>
-  <ul>
-    <li>Using the <a target="_blank" href="https://developers.google.com/maps/documentation/javascript/tutorial">Google Maps API</a> to display my <a href="/travels">travels</a> in a unique way.</li>
-    <li><a href="/inspiration">Inspirational quotes</a> using the <a target="_blank" href="https://forismatic.com/en/api/">forismatic api</a>.</li>
-  </ul>
-</div>
+  <div class="list-container">
+    <h3>The /etc folder of my web projects</h3>
+    <ul>
+      <li>Using the <a target="_blank" href="https://developers.google.com/maps/documentation/javascript/tutorial">Google Maps API</a> to display my <a class="main-link" href="/travels">travels</a> in a unique way.</li>
+      <li><a class="main-link" href="/inspiration">Inspirational quotes</a> using the <a target="_blank" href="https://forismatic.com/en/api/">forismatic api</a> and <a target="_blank" href="http://www.turnjs.com">Turn.js</a>.</li>
+    </ul>
+  </div>
 {% end %}
