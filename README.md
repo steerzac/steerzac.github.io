@@ -1,6 +1,6 @@
 # steerzac.github.io
 My Personal Web Page.
 
-IMPORTANT! Hosted on heroku https://steerzac.herokuapp.com/.
+Hosted on heroku https://steerzac.herokuapp.com/.
 
 Implemented using the Tornado Web Framework and lots of random JavaScript libraries.
